@@ -1,0 +1,58 @@
+.cause_color{
+	color:#009999;
+}
+.product_color{
+	color:#ffcc00;
+}
+.nonprofit_color{
+	color:#ffcc00;
+}
+.background_color{
+	color:#f7f7ef;
+}
+
+
+.transp{
+	background:rgba(150,150,150,0.5);
+}
+
+#sign-up-btn{
+	background:#ffcc00;
+	color:#000000;
+	font-weight:bold!important;
+	width:140px;
+}
+#login-btn{
+	background:rgb(253,112,100);
+	color:#000000;
+	font-weight:bold!important;
+	width:140px;
+}
+
+#box-top-left, #box-top-right, #box-bottom-left, #box-bottom-right{
+	background:#ffffff;
+}
+
+#box-top-left{
+	height:28em;
+}
+#box-top-right{
+	position:relative;
+	left:-1em;
+	height:20em;
+}
+#box-bottom-left{
+	position:relative;
+	top:-1em;
+	height:24em;
+}
+#box-bottom-right{
+	position:relative;
+	left:-1em;
+	top:-1em;
+	height:32em;
+}
+
+#raised-amount{
+	height:5em;
+}

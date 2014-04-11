@@ -1,0 +1,321 @@
+{v2_head}
+<link rel="stylesheet" type="text/css" media="all" href="{stylesheet='v2_css/homepage'}" />
+ <link rel="stylesheet" type="text/css" media="all" href="{stylesheet='v2_css/jquery.bxslider'}" />
+  
+  <!-- Isotope CSS -->
+  <link rel="stylesheet" type="text/css" media="all" href="{stylesheet='style/isotope'}" />
+
+ 
+  <link rel="stylesheet" type="text/css" media="all" href="{stylesheet='style/app'}" />
+
+  <title>iFLIP4</title>
+	<body style="position:relative;top:-5em"> 
+	{v2_header}
+	{v2_notice}
+	<div class="row" >
+      	<ul class="example-orbit" data-orbit data-options="slide_number:false;navigation_arrows:false">
+			<li data-orbit-slide="headline-1">
+				<img src="/images/v2/hp1.jpg" alt="homepage" />
+			</li>
+			<li data-orbit-slide="headline-1">
+				<img src="/images/v2/hp2.jpg" alt="homepage" />
+			</li>
+			<li data-orbit-slide="headline-1">
+				<img src="/images/v2/hp3.jpg" alt="homepage" />
+			</li>
+		</ul>
+    </div>
+	
+	<div class="row">
+		<div class="large-12 columns">
+		<div class="small-6 large-3 columns" style="margin-right:10px">
+			<h4><strong>DISCOVER</strong></h4>
+			<p>Find a cause you love. Explore nonprofits, articles, videos, quizzes, and your
+			friends' causes... All in one place!</p>
+		</div>
+		<div class="small-6 large-3  columns" style="margin-right:10px">
+			<h4><strong>SUPPORT</strong></h4>
+			<p>Make your voice heard. Comment on stories. Share. Even shop
+			and IFLIP4 donates over 50% of the profits to your chosen charity.</p>
+		</div>
+		<div class="small-6 large-3  columns" style="margin-right:10px">
+			<h4><strong>CHANGE</strong></h4>
+			<p>The world is full of problems. It needs your help. Start a movement
+			to inspire our generation to care.
+		</div>
+		<div class="small-6 large-2  columns end"><p>
+			{if logged_out}
+			<p><button  class="radius button" style="background:{product_color};float:right;">SIGN UP</button></p>
+			<p><button  class="radius button" style="background:{nonprofit_color};float:right;">LOGIN>></button></p>
+			{if:else}
+			<p><a href="/nonprofit/all" class="radius button" style="background:{nonprofit_color};float:right;">START FLIP!</a></p>
+			{/if}
+		</div>
+		</div>
+	</div><!--discover,support,change-->
+	</br></br>
+	<div class="row">
+		 <div class="large-12 columns">
+			<h3><strong class="cause_color">Check These Out!</strong></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-12 columns slider1" style="background: rgba(0, 0, 0, 0.0);">			
+				{exp:channel:entries channel="nonprofit|article|video|causaliq" category_group="{last_segment_category_group_id}" category="{last_segment_category_id}" featured="y" sort="desc" limit="25" }  
+					{if featured == "y"}
+					{if channel_short_name == "article"} 
+						
+						<div class="slide item_large block-story" >
+							
+						        <div class="item_thumb"><p><a href="/{channel_short_name}/{url_title}">{if collective_thumb !==""}{exp:ce_img:single src="{collective_thumb}" smart_scale="275" style="width:285px; height:215px;"  crop="yes" alt="{title}"}{if:else}<img src="/images/beta/inactive_thumb.jpg">{/if}</a></p></div>
+								<div class="featured_badge">Featured</div>
+						    	<div class="item_title">	
+						      	<a href="/{channel_short_name}/{url_title}">
+							    <!--<center class="badge" style="color:#000000">{channel}</center>--><br />
+								<p><strong style="color:#000000">{title}</strong></p>
+							    </a>
+							    </div> 
+								 <div class="entry_age" style="display:none">{entry_date format="%Y-%m-%d-%H:%i:%s"}</div>
+							   
+						</div>
+						
+						{/if}
+					{/if}
+					{if featured == "y"}
+					
+					{if channel_short_name == "video"} 
+						
+						<div class="slide item_large block-story" >
+						
+								<div class="item_thumb"><p>
+								{if collective_thumb !==""}{exp:ce_img:single src="{collective_thumb}" smart_scale="yes" smart_scale="275" crop="yes" style="width:285px; height:215px;"  watermark="/images/ui/play_watermark.png" alt="{title}"}<img src="/images/beta/inactive_thumb.jpg">{/if}
+								{exp:channel_videos:videos entry_id="{entry_id}"}<a href="/{channel_short_name}/{url_title}">{exp:ce_img:single src="http://img.youtube.com/vi/{video:service_id}/0.jpg" alt="{title}" smart_scale="yes" smart_scale="275"  crop="yes" watermark="/images/ui/play_watermark.png"}</a>{if video:no_videos}<a href="/{channel_short_name}/{url_title}"><img src="/images/beta/inactive_thumb.jpg">{/if}</a>{/exp:channel_videos:videos}</p></div>
+								<div class="featured_badge">Featured</div>
+								<div class="item_title">	
+								<a href="/{channel_short_name}/{url_title}">
+								<!--<center class="badge" style="color:#000000">{channel}</center>--><br />
+								<p><strong style="color:#000000">{title}</strong></p>
+								</a>
+								 </div>
+								<div class="entry_age" style="display:none">{entry_date format="%Y-%m-%d-%H:%i:%s"}</div>     
+							
+						</div>
+						
+					{/if}
+					
+					{/if}
+				{/exp:channel:entries}
+		<!--Check these out-->
+		</div>
+	</div>
+	</br></br>
+	<div class="row">
+		 <div class="large-12 columns">
+			<h3><strong style="color:#808080">What's Hot!</strong></h3>
+		</div>
+	</div>
+	<div class="row collapse">
+		<div class="large-12 columns">
+		<div class="small-12 large-7 columns collapse">
+			<div class="panel" id="box-top-left">
+				<ul id="cause-slide" class="example-orbit border-orbit" data-orbit data-options="slide_number:false;navigation_arrows: false;bullets:false;timer:false;animation_speed: 100;">
+					<li data-orbit-slide="cause1" >
+						<img width="478" height="344" src="/images/v2/cause-sample.jpg" alt="causes" />
+						<div class="orbit-caption" style="width:19em;height:5em;top:0">
+						  <center style="font-weight:bold;font-size:2.5em;">CAUSES</center>
+						</div>
+					</li>
+					<li data-orbit-slide="cause2" >
+						<img width="478" height="344" src="/images/v2/cause-sample.jpg" alt="causes" />
+						<div class="orbit-caption" style="width:19em;height:5em;top:0">
+						  <center style="font-weight:bold;font-size:2.5em;">CAUSES</center>
+						</div>
+					</li>
+					<li data-orbit-slide="cause3" >
+						<img width="478" height="344" src="/images/v2/cause-sample.jpg" alt="causes" />
+						<div class="orbit-caption" style="width:19em;height:5em;top:0">
+						  <center style="font-weight:bold;font-size:2.5em;">CAUSES</center>
+						</div>
+				</ul>
+				<ul class="small-block-grid-3">
+					<li><div><center><img  id="cause-arrow-1" src="/images/icons/green_arrow.png" style="position:relative;top:-0.3em;visibility:visible"></center></div>
+						<center><strong><a class="hover-click" data-orbit-link="cause1">
+						Education</a></strong></center></li>
+					<li><div><center><img  id="cause-arrow-2"src="/images/icons/green_arrow.png" style="position:relative;top:-0.3em;visibility:hidden"></center></div>
+						<center><strong><a class="hover-click" data-orbit-link="cause2">
+						Poverty</a></strong></center></li>
+					<li><div><center><img  id="cause-arrow-3"src="/images/icons/green_arrow.png" style="position:relative;top:-0.3em;visibility:hidden"></center></div>
+						<center><strong><a class="hover-click" data-orbit-link="cause3">
+						Human Rights</a></strong></center></li>					
+				</ul>
+				
+			</div>
+			<div class="panel" id="box-bottom-left" >
+				<ul id="nonprofit-slide" class="example-orbit border-orbit" data-orbit data-options="slide_number:false;navigation_arrows: false;bullets:false;timer:false;animation_speed: 100;">
+					<li data-orbit-slide="nonprofit1" >
+						<img width="482" height="250" src="/images/v2/nonprofit-sample.png" alt="nonprofits" />
+						<div class="orbit-caption" style="width:19em;height:5em;top:0">
+						  <center style="font-weight:bold;font-size:2.5em;">NONPROFIT</center>
+						</div>
+					</li>
+					<li data-orbit-slide="nonprofit2" >
+						<img width="482" height="250" src="/images/v2/nonprofit-sample.png" alt="nonprofits" />
+						<div class="orbit-caption" style="width:19em;height:5em;top:0">
+						  <center style="font-weight:bold;font-size:2.5em;">NONPROFIT</center>
+						</div>
+					</li>
+					<li data-orbit-slide="nonprofit3" >
+						<img width="482" height="250" src="/images/v2/nonprofit-sample.png" alt="nonprofits" />
+						<div class="orbit-caption" style="width:19em;height:5em;top:0">
+						  <center style="font-weight:bold;font-size:2.5em;">NONPROFIT</center>
+						</div>
+					</li>
+				</ul>
+				<ul class="small-block-grid-3">
+					<li><div><center><img  id="nonprofit-arrow-1" src="/images/icons/red_arrow.png" style="position:relative;top:-0.3em;visibility:visible"></center></div>
+						<center><strong><a style="color:{nonprofit_color}" class="hover-click" data-orbit-link="nonprofit1">
+						Tha adventure Project.Org</a></strong></center></li>
+					<li><div><center><img  id="nonprofit-arrow-2"src="/images/icons/red_arrow.png" style="position:relative;top:-0.3em;visibility:hidden"></center></div>
+						<center><strong><a style="color:{nonprofit_color}" class="hover-click" data-orbit-link="nonprofit2">
+						EarthWorks</a></strong></center></li>
+					<li><div><center><img  id="nonprofit-arrow-3"src="/images/icons/red_arrow.png" style="position:relative;top:-0.3em;visibility:hidden"></center></div>
+						<center><strong><a style="color:{nonprofit_color}" class="hover-click" data-orbit-link="nonprofit3">
+						Children's Aid Society</a></strong></center></li>	
+				
+				</ul>
+			</div>
+		</div>
+		<div class="small-12 large-5 columns collapse">
+			<div class="panel" id="box-top-right">
+				<ul id="quizze-slide" class="example-orbit border-orbit" style="max-height:224px;" data-orbit data-options="slide_number:false;navigation_arrows: false;bullets:false;timer:false;animation_speed: 100;">
+					<li data-orbit-slide="quizze1" >
+						<img src="/images/v2/quizze-sample.png" style="height:224px; width:347px;" alt="quizzes" />
+						<div class="orbit-caption" style="width:15em;height:5em;top:0">
+						  <center style="font-weight:bold;font-size:2.5em;">QUIZZES</center>
+						</div>
+					</li>
+					<li data-orbit-slide="quizze2" >
+						<img src="/images/v2/quizze-sample.png" style="height:224px; width:347px;" alt="quizzes" />
+						<div class="orbit-caption" style="width:15em;height:5em;top:0">
+						  <center style="font-weight:bold;font-size:2.5em;">QUIZZES</center>
+						</div>
+					</li>
+					<li data-orbit-slide="quizze3" >
+						<img src="/images/v2/quizze-sample.png" style="height:224px; width:347px;" alt="quizzes" />
+						<div class="orbit-caption" style="width:15em;height:5em;top:0">
+						  <center style="font-weight:bold;font-size:2.5em;">QUIZZES</center>
+						</div>
+					</li>
+				</ul>
+				<ul class="small-block-grid-3">
+					<li><div><center><img  id="quizze-arrow-1" src="/images/icons/green_arrow.png" style="position:relative;top:-0.3em;visibility:visible"></center></div>
+						<center><strong><a class="hover-click" data-orbit-link="quizze1">
+						Beta Quiz 1</a></strong></center></li>
+					<li><div><center><img  id="quizze-arrow-2"src="/images/icons/green_arrow.png" style="position:relative;top:-0.3em;visibility:hidden"></center></div>
+						<center><strong><a class="hover-click" data-orbit-link="quizze2">
+						Beta Quiz 2</a></strong></center></li>
+					<li><div><center><img  id="quizze-arrow-3"src="/images/icons/green_arrow.png" style="position:relative;top:-0.3em;visibility:hidden"></center></div>
+						<center><strong><a class="hover-click" data-orbit-link="quizze3">
+						Beta Quiz 3</a></strong></center></li>					
+				</ul>
+			</div>
+			
+			<div class="panel" id="box-bottom-right">
+				<ul id="product-slide" class="example-orbit border-orbit" style="max-height:401px;" data-orbit data-options="slide_number:false;navigation_arrows: false;bullets:false;timer:false;animation_speed: 100;">
+					<li data-orbit-slide="product1" >
+						<img src="/images/v2/product-sample.jpg" style="height:401px; width:339px;" alt="products" />
+						<div class="orbit-caption" style="width:15em;height:5em;top:0">
+						  <center style="font-weight:bold;font-size:2.5em;">PRODUCT</center>
+						</div>
+					</li>
+					<li data-orbit-slide="product2" >
+						<img src="/images/v2/product-sample.jpg" style="height:401px; width:339px;" alt="products" />
+						<div class="orbit-caption" style="width:15em;height:5em;top:0">
+						  <center style="font-weight:bold;font-size:2.5em;">PRODUCT</center>
+						</div>
+					</li>
+					<li data-orbit-slide="product3" >
+						<img src="/images/v2/product-sample.jpg" style="height:401px; width:339px;" alt="products" />
+						<div class="orbit-caption" style="width:15em;height:5em;top:0">
+						  <center style="font-weight:bold;font-size:2.5em;">PRODUCT</center>
+						</div>
+					</li>
+				</ul>
+				<ul class="small-block-grid-3">
+					<li><div><center><img  id="product-arrow-1" src="/images/icons/red_arrow.png" style="position:relative;top:-0.3em;visibility:visible"></center></div>
+						<center><strong><a style="color:{nonprofit_color}" class="hover-click" data-orbit-link="product1">
+						Inspire</a></strong></center></li>
+					<li><div><center><img  id="product-arrow-2"src="/images/icons/red_arrow.png" style="position:relative;top:-0.3em;visibility:hidden"></center></div>
+						<center><strong><a style="color:{nonprofit_color}" class="hover-click" data-orbit-link="product2">
+						Empower</a></strong></center></li>
+					<li><div><center><img  id="product-arrow-3"src="/images/icons/red_arrow.png" style="position:relative;top:-0.3em;visibility:hidden"></center></div>
+						<center><strong><a style="color:{nonprofit_color}" class="hover-click" data-orbit-link="product3">
+						Global</a></strong></center></li>	
+				
+				</ul>
+			</div>
+		</div>
+		</div>
+	</div><!--what's hot-->
+    <div class="row" id="raised-amount" > 
+			<div class="small-12 large-8 columns">
+				<h3><strong><center>AMOUNT RAISED FOR YOUR NONPROFITS</center></strong></h3>
+			</div>
+			<div class="small-12 large-4 columns">
+				<h3><strong style="color:#fcc500"><center>$ {exp:flip_it:grand_total}</center></strong></h3>
+			</div> 
+	</div><!--donation-->   
+ 
+{v2_footer}
+<script>
+	$(document).ready(function(){
+  $('.slider1').bxSlider({
+    slideWidth: 320,
+    minSlides: 2,
+    maxSlides: 3,
+	pager:false,
+    slideMargin: 20
+  });
+  $(".orbit-timer").hide();
+});			
+	$( ".hover-click" ).hover(function() {
+		$( this ).click();
+		console.info();
+	});
+</script>
+<script>
+      $(document).foundation();
+	  var $container = $('#container');
+	// init
+	$container.isotope({
+	// options
+	itemSelector: '.item',
+	layoutMode: 'fitRows'
+	});
+	
+    </script>
+	
+<!--register listen-->
+<script>
+$("#cause-slide").on("after-slide-change.fndtn.orbit", function(event, orbit) {
+  document.getElementById('cause-arrow-1').style.visibility='hidden'; document.getElementById('cause-arrow-2').style.visibility='hidden'; document.getElementById('cause-arrow-3').style.visibility='hidden';
+  document.getElementById('cause-arrow-'+(orbit.slide_number+1)).style.visibility='visible';
+});
+$("#nonprofit-slide").on("after-slide-change.fndtn.orbit", function(event, orbit) {
+  document.getElementById('nonprofit-arrow-1').style.visibility='hidden'; document.getElementById('nonprofit-arrow-2').style.visibility='hidden'; document.getElementById('nonprofit-arrow-3').style.visibility='hidden';
+  document.getElementById('nonprofit-arrow-'+(orbit.slide_number+1)).style.visibility='visible';
+});
+$("#quizze-slide").on("after-slide-change.fndtn.orbit", function(event, orbit) {
+  document.getElementById('quizze-arrow-1').style.visibility='hidden'; document.getElementById('quizze-arrow-2').style.visibility='hidden'; document.getElementById('quizze-arrow-3').style.visibility='hidden';
+  document.getElementById('quizze-arrow-'+(orbit.slide_number+1)).style.visibility='visible';
+});
+$("#product-slide").on("after-slide-change.fndtn.orbit", function(event, orbit) {
+  document.getElementById('product-arrow-1').style.visibility='hidden'; document.getElementById('product-arrow-2').style.visibility='hidden'; document.getElementById('product-arrow-3').style.visibility='hidden';
+  document.getElementById('product-arrow-'+(orbit.slide_number+1)).style.visibility='visible';
+});
+
+</script>
+
+<!-- Initialize Isotope Plugin -->
+ <script src="{path='script/isotope.pkgd.min'}" type="text/javascript"></script>
+  <script src="{path='v2_script/jquery.bxslider.min'}" type="text/javascript"></script>

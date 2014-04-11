@@ -1,0 +1,81 @@
+#header{
+	background:transparent;
+}
+#header .name,#header .name a,#header-small .name,#header-small .name a{
+	color:#ffffff;
+	margin-left:0.5em;
+	background:transparent;
+}
+
+#header section,#header-small section{
+	margin-top:1em;
+	background:transparent;
+}
+
+
+#header section ul{
+	background:transparent;
+}
+#header .dropdown{
+	background:rgba(30,30,30,0.5);
+}
+
+#header .dropdown ul{
+	background:rgba(30,30,30,0.8);
+}
+
+
+#header .top-bar-section .has-form,#header ul li a{
+	background:transparent;
+}
+#header ul li a{
+	font-weight:700;
+}
+
+#nav-search-text,#nav-search-text-small{
+	margin-left:3em;
+	height:2.5em;
+	background:#acacac;
+	border-color:#acacac;
+	border-top-left-radius: 5px 5px; 
+	border-bottom-left-radius: 5px 5px;
+	border-top-right-radius: 5px 5px; 
+	border-bottom-right-radius: 5px 5px;
+}
+
+#nav-search-icon,#nav-search-icon-small{
+	height:3.2em;
+	background:#acacac;
+	border-top-right-radius: 5px 5px; 
+	border-bottom-right-radius: 5px 5px;
+}
+
+#footer{
+	background:#362f2d;
+	
+}
+
+#footer  a{
+	color:#a2a2a2;
+}
+#footer #label{
+	font-size: 1em;
+	font-weight:bold;
+	color:#e2e2e2 ;
+}
+#footer #email-text{
+	height:2.5em;
+}
+#footer #email-go{
+	height:2.43em;
+	background-color:#ffcc00;
+	color:#000000;
+	font-weight:bold;
+	font-size: 0.9em;
+        position:relave;left:-1.35em;
+}
+#footer .copyright{
+	color:#a2a2a2;
+	text-align:center;
+	font-size:0.7em;
+}

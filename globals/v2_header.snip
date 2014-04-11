@@ -1,0 +1,137 @@
+<div class="contain-to-grid fixed" style="height:5em">
+			<nav class="top-bar hide-for-small" data-topbar id="header">
+				<ul class="title-area">
+					<li class="name">
+						<div>
+						<h3><a href="{v2_site_url}">IFLIP4</a></h3>
+						<p>What Do You FLIP4?</p>
+						</div>
+					</li>
+					<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a>
+				</ul>
+				<section class="top-bar-section">
+				<ul class="left">
+					<li class="has-form">
+						<div class="row collapse">
+							<div class="large-11 small-9 columns">
+								<input id="nav-search-text" type="text">
+							</div>
+							<div class="large-1 small-3 columns">
+								<a href="#" id="nav-search-icon" class="tiny center button"><img width="20px" src="images/icons/search_icon.png"></a>
+							</div>
+						</div>
+					</li>					
+				</ul>
+				<!-- Right Nav Section -->
+				<ul class="right">
+					<li><a href="#">ABOUT</a></li>
+					<li class="has-dropdown">
+						<a href="#">CAUSES</a>
+						<ul class="dropdown">
+						{exp:gwcode_categories channel="nonprofit" depth="1|2" style="linear"}
+							 {if depth1_start}
+							 <li class="has-dropdown"> <a href="/v2_base/sector/{cat_url_title}">{cat_name}</a> 
+							 {/if}
+							
+							 {if depth2_start}<ul class="dropdown">{/if}
+							 {if depth == "2"}<li><a href="/v2_base/sector/{parent_url_title}/{cat_url_title}">{cat_name}</a></li>{/if}
+							 
+							 {if depth2_end}
+						   
+							 <li><a href="/v2_base/sector/{parent_url_title}">&raquo; View All</a></li>
+							 </ul>
+							 {/if}
+									 
+							 {if depth1_end}
+							 </li>
+							 {/if}  
+						{/exp:gwcode_categories}
+						</ul>
+					</li>
+					<li>
+						<a href="#" >NONPROFIT</a>
+					</li>
+					<li><a href="#">PRODUCTS</a></li>
+					<!--<li><a href="#"><img width="30" src="images/icons/cart.png"/></a></li>-->
+					{if logged_out}
+					<li><a href="#"><img width="30" src="images/icons/profile.png"/></a></li>
+					{if:else}
+					<li class="has-dropdown"><a href="#"><img width="30" src="images/icons/profile_login.png"/></a>
+						<ul class="dropdown">
+							<li><a href="#">My Profile</a></li>
+							<li><a href="{path='logout'}">Logout</a></li>
+						</ul>
+					</li>
+					{/if}
+				</ul>
+				</section>				
+			</nav>
+			
+			<nav class="top-bar show-for-small" data-topbar id="header-small">
+				<ul class="title-area">
+					<li class="name">
+						<div>
+						<h3><a href="{v2_site_url}">IFLIP4</a></h3>
+						<p>What Do You FLIP4?</p>
+						</div>
+					</li>
+					<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a>
+				</ul>
+				<section class="top-bar-section">
+				<ul class="left">
+					<li class="has-form">
+						<div class="row collapse">
+							<div class="large-11 small-9 columns">
+								<input id="nav-search-text" type="text">
+							</div>
+							<div class="large-1 small-3 columns">
+								<a href="#" id="nav-search-icon" class="tiny center button"><img width="20px" src="images/icons/search_icon.png"></a>
+							</div>
+						</div>
+					</li>					
+				</ul>
+				<!-- Right Nav Section -->
+				<ul class="right">
+					<li><a href="#">ABOUT</a></li>
+					<li class="has-dropdown">
+						<a href="#">CAUSES</a>
+						<ul class="dropdown">
+						{exp:gwcode_categories channel="nonprofit" depth="1|2" style="linear"}
+							 {if depth1_start}
+							 <li class="has-dropdown"> <a href="/v2_base/sector/{cat_url_title}">{cat_name}</a> 
+							 {/if}
+							
+							 {if depth2_start}<ul class="dropdown">{/if}
+							 {if depth == "2"}<li><a href="/v2_base/sector/{parent_url_title}/{cat_url_title}">{cat_name}</a></li>{/if}
+							 
+							 {if depth2_end}
+						   
+							 <li><a href="/v2_base/sector/{parent_url_title}">&raquo; View All</a></li>
+							 </ul>
+							 {/if}
+									 
+							 {if depth1_end}
+							 </li>
+							 {/if}  
+						{/exp:gwcode_categories}
+						</ul>
+					</li>
+					<li>
+						<a href="#">NONPROFIT</a>
+					</li>
+					<li><a href="#">PRODUCTS</a></li>
+					<li><a href="#">Cart</a></li>
+					{if logged_out}
+					<li><a href="#">Profile</a></li>
+					{if:else}
+					<li class="has-dropdown"><a href="#">Profile</a>
+						<ul class="dropdown">
+							<li><a href="#">My Profile</a></li>
+							<li><a href="{path='logout'}">Logout</a></li>
+						</ul>
+					</li>
+					{/if}
+				</ul>
+				</section>				
+			</nav>
+		</div><!--end top bar-->	
